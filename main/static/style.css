@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+    color: #fffcf2;
+    background: #403d39;
+    font-family: "Roboto";
+    font-size: 20px;
+    font-weight: 400;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+}
+
+.intro {
+    width: 100%;
+    height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+    justify-content: flex-start;
+    padding: 0 50px;
+    height: 95%;
+    position: relative;
+}
+
+.intro_inner {
+    background: #252422;
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+    padding-top:350px;
+}
+
+.title {
+    font-size: 50px;
+    width: 100%;
+    padding: 50px;
+    background: #fffcf2;
+    color: #252422;
+    float: left;
+}
+
+.purch_block {
+    margin-bottom: 100px;
+}
+
+.purch_line {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 30px;
+}
+
+form {
+    margin-top: 10px;
+}
+
+form #number_input {
+    width: 500px;
+    height: 30px;
+    font-size: 20px;
+    margin: none;
+}
+
+form #button {
+    height: 31px;
+    width: 100px;
+    background: #eb5e28;
+    color: #fffcf2;
+    font-size: 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+#update {
+    position: absolute;
+    top: 50px;
+    right: 100px;
+
+    font-size: 25px;
+    width: 250px;
+    display: flex;
+    justify-content: space-evenly;
+    height: 60px;
+    background: #eb5e28;
+    color: #fffcf2;
+    line-height: 60px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#update img {
+    width: 40px;
+    margin: auto 0;
+}

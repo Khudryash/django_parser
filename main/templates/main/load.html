@@ -1,0 +1,30 @@
+{% extends "main/home.html" %}
+
+{% block script %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $.ajax({
+            type: "post",
+            url: "../home/",
+            data: 'csrfmiddlewaretoken={{csrf_token}}',
+            success: function(){
+                window.location.href='../home/';
+            }
+        });
+    });
+</script>
+{% endblock %}
+
+{% block page_body %}
+    <h1 class="title">Загрузка</h1>
+    <div class="intro_inner">
+
+        <div class="purch_block">
+            <p class="purch_line">Обновление базы может занять некоторое время</p>
+            <p class="purch_line">Не покидайте страницу</p>
+        </div>
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    {% block script %}
+    <script type="text/javascript">
+
+        function searchPurch() {
+            window.location.href = '../'+document.getElementById("number_input").value;
+        }
+
+        function updateDB() {
+            window.location.href = '../load'
+        }
+    </script>
+    {% endblock %}
+</head>
+<body>
+    <div class="intro">
+        <div class="container">
+            {% block page_body %}
+            <h1 class="title">{% block title %}Домашняя страница{% endblock %}</h1>
+            <div class="intro_inner">
+
+                {% block purchase %}
+                {% endblock %}
+
+                <p class="subtitle">Найти закупку по номеру</p>
+                <form id="number_search" action="javascript:searchPurch()">
+                    <input type="text" id="number_input">
+                    <input type="submit" id="button" value="поиск">
+
+                </form>
+            </div>
+            <button id="update" onclick="javascript:updateDB()">
+                <img src="../static/reload.svg" alt="update database">
+                Обновить базу
+            </button>
+            {% endblock %}
+        </div>
+
+
+
+    </div>
+</body>
+</html>
