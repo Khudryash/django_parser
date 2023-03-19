@@ -4,10 +4,15 @@ from .models import Purcase
 from .pageparser import PageParser
 import logging
 
+
+# Отображение всех логов
 logging.basicConfig(level=logging.DEBUG)
 
 
+# Контроллер домашней страницы
 def home(response):
+
+    # Обработка получения POST-запроса, запуск парсера
     if response.method == 'POST':
         start_time = time.time()
 
@@ -25,12 +30,14 @@ def home(response):
     })
 
 
+# Контроллер страницы закупки
 def page(response, number):
     pur_obj = Purcase.objects \
         .select_related('values') \
         .only('number', 'values__calculation') \
         .filter(number=number).first()
 
+    # Получение объектов из базы данных одним SQL-запросом
     if pur_obj is not None:
         pur_number = pur_obj.number
 
@@ -48,5 +55,6 @@ def page(response, number):
     })
 
 
+# Контроллер промежуточной страницы загрузки
 def load(response):
     return render(response, 'main/load.html', {})

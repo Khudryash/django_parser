@@ -1,6 +1,7 @@
 from django.db import models
 
 
+# Модель таблицы "Закупки"
 class Purcase(models.Model):
     number = models.CharField(max_length=100, verbose_name="Номер", unique=True, db_index=True)
     start_price = models.FloatField(verbose_name="Стартовая цена", null=True)
@@ -14,6 +15,7 @@ class Purcase(models.Model):
         ordering = ['-number']
 
 
+# Модель таблицы "Данные"
 class Values(models.Model):
     purchase = models.OneToOneField(Purcase, on_delete=models.CASCADE, verbose_name="Закупка")
     calculation = models.FloatField(verbose_name="Расчёт", null=True)

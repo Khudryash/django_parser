@@ -17,6 +17,7 @@ class PageParser:
     html_content = None
     soup = None
 
+    # Получение данных со страницы
     def get_page_value(self, page):
 
         self.html_content = requests.get(url=self.url.format(page=page), headers=self.headers)
@@ -35,6 +36,7 @@ class PageParser:
             price = item \
                 .find(class_='price-block__value')
 
+            # Запись в бд с предварительной проверкой на наличие значения
             if price is not None:
                 price = price \
                     .text \
@@ -48,5 +50,6 @@ class PageParser:
                 obj = Purcase.objects.update_or_create(number=num, start_price=None)
                 Values.objects.update_or_create(purchase=obj[0], calculation=None)
 
+    # Получение номера последней страницы
     def get_page_count(self):
         return int(self.soup.find_all(class_='page')[-1].find('span').text.strip())
