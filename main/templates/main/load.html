@@ -6,7 +6,7 @@
     $(document).ready(function(){
         $.ajax({
             type: "post",
-            url: "../home/",
+            url: "../",
             data: 'csrfmiddlewaretoken={{csrf_token}}',
             success: function(){
                 window.location.href='../home/';
